@@ -1,0 +1,29 @@
+{
+    "name": "phpvms/ifatours-module",
+    "type": "phpvms-module",
+    "description": "Tours module for phpVMSv7",
+    "authors": [
+      {
+        "name": "Matt W",
+        "email": "matt@icefireair.com",
+        "homepage": "https://www.icefireair.com"
+      }
+    ],
+    "require": {
+        "composer/installers": "~1.0",
+        "intervention/image": "^2.7"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "IfaToursServiceProvider",
+                "Modules\\IfaTours\\Providers\\EventServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\IfaTours\\": "."
+        }
+    }
+}
