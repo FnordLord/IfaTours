@@ -23,15 +23,15 @@
         <p>{!! $tour->description !!}</p>
         <p>
           @if($tour->completed)
-            <span class="badge badge-success">Completed</span> You have already completed this tour and aquired an award. But you can of course fly the tour again.
+            <span class="badge badge-success">Completed</span> You have already completed this charter/tour and aquired an award. But you can of course fly again.
           @elseif($tour->in_progress)
-            <span class="badge badge-warning">In Progress</span> You have completed one or more legs of this tour already. Keep going to receive your award!
+            <span class="badge badge-warning">In Progress</span> You have completed one or more legs of this charter/tour already. Keep going to receive your award!
           @else
-            <span class="badge badge-info">Available</span> After completion of the tour you will automatically received an award.
+            <span class="badge badge-info">Available</span> After completion of the charter/tour you will automatically receive an award.
           @endif
         </p>
         <h2>Tour legs</h2>
-
+        <p class="small"><strong>Please note:</strong> You can bid for more than one leg at a time, e.g. if you plan on flying several in a row. But to avoid database bloat, we'll cancel bids that were not flown within 48 hours. You'll have to add bids again.</p>
         @if($tour->legs->isNotEmpty())
           <ul class="list-group">
             @foreach($tour->legs as $leg)
