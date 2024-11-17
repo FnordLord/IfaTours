@@ -7,6 +7,7 @@ use Modules\IfaTours\Models\CompletedTour;
 use Modules\IfaTours\Models\Tour;
 use App\Models\UserAward;
 use App\Models\Pirep;
+use App\Models\Enums\PirepState;
 
 class AwardTourCompletion
 {
@@ -24,7 +25,7 @@ class AwardTourCompletion
             $all_legs_completed = $tour->legs->every(function ($leg) use ($user) {
                 return Pirep::where('flight_id', $leg->flight_id)
                     ->where('user_id', $user->id)
-                    ->where('state', 2) // Assuming '2' means 'accepted'
+                    ->where('state', PirepState::ACCEPTED)
                     ->exists();
             });
 
