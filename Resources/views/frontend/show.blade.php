@@ -38,10 +38,11 @@
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
                   <strong>Flight No.</strong> {{ $leg->flight->flight_number ?? 'N/A' }}, Leg {{ $leg->order }} /
-                  <strong>Route:</strong> {{ $leg->flight->location ?? 'N/A' }} {{ $leg->flight->dpt_airport_id ?? 'N/A' }}
-                  to {{ $leg->flight->arr_airport_id ?? 'N/A' }} /
-                  <strong>Distance:</strong> {{ $leg->flight->distance ?? 'N/A' }} nm /
-                  <strong>Duration:</strong> {{ $leg->flight->flight_time ?? 'N/A' }} min
+                  <strong>Route:</strong> {{ $leg->flight->dpt_airport_id ?? 'N/A' }} to {{ $leg->flight->arr_airport_id ?? 'N/A' }} /
+                  <strong>Distance:</strong> {{ $leg->flight->distance ?? 'N/A' }} nm
+                  @if($leg->flight->flight_time > 0)
+                    / <strong>Duration:</strong> {{ $leg->flight->flight_time }} min
+                  @endif
                 </div>
                 <div>
                   @if(in_array($leg->flight_id, $completedFlightIds))
