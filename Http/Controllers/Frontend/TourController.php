@@ -38,11 +38,18 @@ class TourController extends Controller
     {
         $user = auth()->user();
 
-        $tour->load('legs.flight', 'award');
+        $tour->load([
+            'legs' => function ($query) {
+                $query->orderBy('order');
+            },
+            'legs.flight',
+            'award'
+        ]);
 
         $completedFlightIds = $user ? CompletedTourFlight::where('user_id', $user->id)
             ->where('tour_id', $tour->id)
             ->pluck('flight_id')
+
             ->toArray() : [];
 
         $totalLegCount = $tour->legs()->count();
