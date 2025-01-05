@@ -1,4 +1,6 @@
-# IFA Tours
+# This repo has been archived because it's no longer developed/maintained.
+
+## IFA Tours
 Simple tours plugin for phpVMSv7 created by MattW for IceFireAir Virtual Airline. Feel free to use for your own VA.
 * IFA: https://www.icefireair.com
 * phpVMS: https://github.com/nabeelio/phpvms
